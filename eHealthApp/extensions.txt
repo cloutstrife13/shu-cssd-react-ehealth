@@ -1,0 +1,9 @@
+formulahendry.auto-close-tag
+nucllear.vscode-extension-auto-import
+formulahendry.auto-rename-tag
+dbaeumer.vscode-eslint
+fivethree.vscode-ionic-snippets
+svipas.prettier-plus
+burkeholland.simple-react-snippets
+planbcoding.vscode-react-refactor
+streetsidesoftware.code-spell-checker

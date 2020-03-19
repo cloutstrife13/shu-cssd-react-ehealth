@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "1fc5ceee-a962-414c-8065-0309c689008e",
+		"name": "eHealth API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "READ: Is OData endpoint valid (OK)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46cc7f67-c20e-44b2-9c8d-0a99c5de6731",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains base keys\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.all.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Response contains array\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.be.an(\"array\");",
+							"})",
+							"",
+							"pm.test(\"Response collection is of length 13\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.have.lengthOf(13);",
+							"})",
+							"",
+							"pm.test(\"Response contains all collection keys\", () => {",
+							"    var jsonArray = pm.response.json().value;",
+							"    ",
+							"    for(var i = 0; i < jsonArray.length; i++)",
+							"        pm.expect(jsonArray[i]).to.have.all.keys(\"name\", \"kind\", \"url\");",
+							"});",
+							"",
+							"pm.test(\"Response contains EDM names\", () => {",
+							"    var edmLabels = [\"Masters\", \"Users\", \"Patients\", \"Doctors\", \"Activities\", \"Exercises\", \"DistanceSports\",",
+							"                     \"LegSports\", \"Runnings\", \"Walkings\", \"Cyclings\", \"WeightReadings\", \"BloodPressureReadings\"]",
+							"                     ",
+							"    var jsonArray = pm.response.json().value;",
+							"    ",
+							"    for(var i = 0; i < jsonArray.length; i++)",
+							"        pm.expect(jsonArray[i].name).to.include(edmLabels[i]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						""
+					]
+				},
+				"description": "Verifies whether or not there is a valid OData endpoint in line with the business model."
+			},
+			"response": []
+		},
+		{
+			"name": "READ: Retrieve all patients (OK)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0056e215-a663-4f54-9718-19a04116f8a3",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an array\", () => {",
+							"    var jsonArray = pm.response.json();",
+							"    pm.expect(jsonArray).to.be.an(\"array\");",
+							"})",
+							"",
+							"pm.test(\"Response is of length 8\", () => {",
+							"    var jsonArray = pm.response.json();",
+							"    pm.expect(jsonArray).to.have.lengthOf(8);",
+							"})",
+							"",
+							"pm.test(\"Response collection contains objects\", () => {",
+							"    var jsonArray = pm.response.json();",
+							"    ",
+							"    for(var i = 0; i < jsonArray.length; i++)",
+							"        pm.expect(jsonArray[i]).to.be.an(\"object\");",
+							"});",
+							"",
+							"pm.test(\"Response collection entity contains all properties\", () => {",
+							"    var jsonArray = pm.response.json();",
+							"    ",
+							"    for(var i = 0; i < jsonArray.length; i++)",
+							"        pm.expect(jsonArray[i]).to.contain.keys(\"doctor\", \"name\", \"id\", \"uri\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/odata/patients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"patients"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Demonstrate the READ operation on the Patient entity which proves the data acquisition for any entity of the business model."
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE: Add a new Activity to a Patient (Created)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1109e354-d341-4441-8dc6-965bcdaeffce",
+						"exec": [
+							"pm.test(\"Status code is 201\", () => {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response collection entity contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"Name\", \"ID\", \"Timestamp\", \"StartTime\", \"EndTime\", \"Distance\", \"Steps\", \"CaloriesBurnt\", \"Uri\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient\": { \"ID\": \"TestPatient-1\" },\r\n    \"steps\": 0,\r\n    \"caloriesBurnt\": 19.3,\r\n    \"startTime\": \"2011-10-05T14:48:00.000Z\",\r\n    \"endTime\": \"2011-10-05T17:00:00.000Z\",\r\n    \"distance\": 45.3,\r\n    \"name\": \"My Running\",\r\n    \"timestamp\": \"2011-10-05T17:12:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/runnings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"runnings"
+					]
+				},
+				"description": "Demonstrate the success case of the instantiation of an Activity class that will be linked to a Patient instance."
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE: Add a new Activity (Bad Request)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6fe1d9ec-dfae-4357-93e0-43adca989a17",
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"caloriesBurnt\": 19.3,\r\n    \"distance\": 45.3,\r\n    \"name\": \"My Running\",\r\n    \"timestamp\": \"2011-10-05T17:12:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/runnings/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"runnings",
+						""
+					]
+				},
+				"description": "Demonstrate the fail case where a request contains insufficient properties that are required by the data model."
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE: Assign Patients to an existing Doctor (OK)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5b73cc9d-a5d4-4917-bf78-331dfe5cf56c",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"patients\": [{\"ID\": \"TestPatient-1\"}, {\"ID\": \"TestPatient-8\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/doctors/TestDoctor-1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"doctors",
+						"TestDoctor-1"
+					]
+				},
+				"description": "Demonstrate the success case by assigning existing Patients to an existing Doctor."
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE: Assign Patients to a non-existent Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7337735b-faa6-47fe-b484-8c40aa62c233",
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"patients\": [{\"ID\": \"TestPatient-1\"}, {\"ID\": \"TestPatient-8\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/doctors/TestDoctor-9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"doctors",
+						"TestDoctor-9"
+					]
+				},
+				"description": "Demonstrate the fail case of assigning existing Patients to a non-existent Doctor."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: Remove an existing Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcde467c-ceca-437a-b6b7-e453d7cb6ca4",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata/doctors/TestDoctor-2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"doctors",
+						"TestDoctor-2"
+					]
+				},
+				"description": "Demonstrate the success case of removing an exiting Doctor from the database."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: Remove an already-removed Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88733745-58e4-4a6d-8d8f-cb230a8bd788",
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata/doctors/TestDoctor-2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"doctors",
+						"TestDoctor-2"
+					]
+				},
+				"description": "Demonstrate the fail case by attempting to remove an already-removed Doctor from the database."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

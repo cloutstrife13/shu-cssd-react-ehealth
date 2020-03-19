@@ -1,0 +1,728 @@
+{
+	"info": {
+		"_postman_id": "49743e13-8d61-40e0-9619-800267f92665",
+		"name": "eHealth API Testing - User Role",
+		"description": "Testing the Credential API for registration and login processes. The passwords specified for these tests are unencrypted and are meant to demonstrate the purpose of being capable of registering and logging in to a user account. In the client-side application, the password will always be sent encrypted due to security concerns where it will be encrypted once more on the DIL.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Verify the existence of a non-existent username for Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36858d08-016e-42fe-a1b1-9c8cde4ba529",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Username is valid.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/validateusername(username='ehs-madeleinegirard')",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"validateusername(username='ehs-madeleinegirard')"
+					]
+				},
+				"description": "Check whether or not a username exists on the database."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Verify the existence of a non-existent username for Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36858d08-016e-42fe-a1b1-9c8cde4ba529",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Username is valid.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/validateusername(username='thegreataoife13')",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"validateusername(username='thegreataoife13')"
+					]
+				},
+				"description": "Check whether or not a username exists on the database."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Create Credential instance for Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36858d08-016e-42fe-a1b1-9c8cde4ba529",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Registration successful.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"User\": {\"ID\": \"TestDoctor-1\"},\n\t\"Username\": \"ehs-madeleinegirard\",\n\t\"Password\": \"madeleine@ehs13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"register"
+					]
+				},
+				"description": "Simulate the registration of a new Doctor. This test will assume that the Doctor has already created an account where their credentials will be associated with them."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Create Credential instance for Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Registration successful.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"User\": {\"ID\": \"TestPatient-3\"},\n\t\"Username\": \"thegreataoife13\",\n\t\"Password\": \"finalYear@13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"register"
+					]
+				},
+				"description": "Simulate the registration of a new Patient. This test will assume that the Patient has already created an account where their credentials will be associated with them."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Verify the existence of an existing username for Doctor Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36858d08-016e-42fe-a1b1-9c8cde4ba529",
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Username already taken.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"User\": {\"ID\": \"TestDoctor-1\"},\n\t\"Username\": \"ehs-madeleinegirard\",\n\t\"Password\": \"madeleine@ehs13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/validateusername(username='ehs-madeleinegirard')",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"validateusername(username='ehs-madeleinegirard')"
+					]
+				},
+				"description": "Check whether or not a username exists on the database."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Verify the existence of an existing username for Patient Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36858d08-016e-42fe-a1b1-9c8cde4ba529",
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Username already taken.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"User\": {\"ID\": \"TestDoctor-1\"},\n\t\"Username\": \"ehs-madeleinegirard\",\n\t\"Password\": \"madeleine@ehs13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/validateusername(username='thegreataoife13')",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"validateusername(username='thegreataoife13')"
+					]
+				},
+				"description": "Check whether or not a username exists on the database."
+			},
+			"response": []
+		},
+		{
+			"name": "7. Login to Doctor Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains user key\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"user\");",
+							"});",
+							"",
+							"pm.test(\"User contains patient keys\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user).to.contain.keys(\"id\", \"uri\", \"name\", \"email\", \"gender\", \"dob\", \"patients\");",
+							"});",
+							"",
+							"pm.test(\"Doctor is named Madeleine\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.name).to.contain(\"Madeleine\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Username\": \"ehs-madeleinegirard\",\n\t\"Password\": \"madeleine@ehs13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"login"
+					]
+				},
+				"description": "Login to the Doctor's account created in Step 3."
+			},
+			"response": []
+		},
+		{
+			"name": "8. Login to Patient Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains user key\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"user\");",
+							"});",
+							"",
+							"pm.test(\"User contains patient keys\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user).to.contain.keys(\"id\", \"uri\", \"name\", \"email\", \"gender\", \"dob\", \"doctor\");",
+							"});",
+							"",
+							"pm.test(\"Patient is named Aoife\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.name).to.contain(\"Aoife\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Username\": \"thegreataoife13\",\n\t\"Password\": \"finalYear@13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"login"
+					]
+				},
+				"description": "Login to the Patient's account created in Step 3."
+			},
+			"response": []
+		},
+		{
+			"name": "9. Login to non-existent Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 401\", () => {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response contains user key\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"@odata.context\", \"value\");",
+							"});",
+							"",
+							"pm.test(\"Check response value\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(\"Credentials invalid. Please try again.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Username\": \"anonymous\",\n\t\"Password\": \"sqlInjection@13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/credentials/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"credentials",
+						"login"
+					]
+				},
+				"description": "Login to a non-existent account to block access to non-registed users."
+			},
+			"response": []
+		},
+		{
+			"name": "10. Assign Patient to Doctor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"patients\": [{\"ID\": \"TestPatient-4\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/doctors/TestDoctor-1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"doctors",
+						"TestDoctor-1"
+					]
+				},
+				"description": "Conduct a task based on the Doctor's user role in order to assign a Patient to a Doctor. It is the Doctor's role to establish a bidirectional relationship between themselve and the Patient."
+			},
+			"response": []
+		},
+		{
+			"name": "11. Assign Doctor to Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40470f09-281b-4e39-ac91-a281af21c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"doctor\": {\"ID\": \"TestDoctor-3\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/patients/TestPatient-3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"patients",
+						"TestPatient-3"
+					]
+				},
+				"description": "Conduct a task based on the Doctor's user role in order to assign a Doctor to a Patient. It is the Doctor's role to establish a bidirectional relationship between themselve and the Patient."
+			},
+			"response": []
+		},
+		{
+			"name": "12. Add a new Activity to Patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6fe1d9ec-dfae-4357-93e0-43adca989a17",
+						"exec": [
+							"pm.test(\"Status code is 201\", () => {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"})",
+							"",
+							"pm.test(\"Response collection entity contains all properties\", () => {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.contain.keys(\"ID\", \"Timestamp\", \"StartTime\", \"EndTime\", \"Distance\", \"Steps\", \"CaloriesBurnt\", \"Uri\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient\": { \"ID\": \"TestPatient-3\" },\r\n    \"steps\": 0,\r\n    \"caloriesBurnt\": 19.3,\r\n    \"startTime\": \"2011-10-05T14:48:00.000Z\",\r\n    \"endTime\": \"2011-10-05T17:00:00.000Z\",\r\n    \"distance\": 45.3,\r\n    \"timestamp\": \"2011-10-05T17:12:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/runnings/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"runnings",
+						""
+					]
+				},
+				"description": "Conduct a task based on the Patients's user role in order to assign a new activity to themselve."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0a47bd04-4eeb-4f2d-b742-c853adea3d4c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d6815b67-b84d-4b18-a9df-58bddee9c894",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

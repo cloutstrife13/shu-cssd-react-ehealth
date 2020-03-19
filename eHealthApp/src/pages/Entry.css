@@ -1,0 +1,13 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+section:not(.full-width),
+.full-width > header {
+  padding: 0 10px;
+}

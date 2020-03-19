@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>eHealth_DataBus</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.0-beta" />
+    <PackageReference Include="Semiodesk.Trinity" Version="1.0.3.30" />
+    <PackageReference Include="Semiodesk.Trinity.Virtuoso" Version="1.0.3.30" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
+  </ItemGroup>
+
+
+</Project>

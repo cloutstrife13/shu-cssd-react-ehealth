@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eHealth-DIL-3.1", "eHealth-DIL-3.1\eHealth-DIL-3.1.csproj", "{A660C239-8736-4753-A7B0-FD379CE2AC4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A660C239-8736-4753-A7B0-FD379CE2AC4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A660C239-8736-4753-A7B0-FD379CE2AC4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A660C239-8736-4753-A7B0-FD379CE2AC4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A660C239-8736-4753-A7B0-FD379CE2AC4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5BEB4A1-94DC-45A4-BBFF-D5CA1F536A9B}
+	EndGlobalSection
+EndGlobal

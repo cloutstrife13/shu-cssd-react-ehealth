@@ -1,0 +1,337 @@
+{
+	"id": "c9a31bcc-6eff-408c-9458-f2378f314a03",
+	"name": "eHealth API Testing",
+	"timestamp": "2020-03-14T18:53:39.056Z",
+	"collection_id": "2d170ce1-6a09-4435-9809-2ca5696071ef",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 20,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6c39c63d-a18a-49cc-bac3-e2613eaf4744",
+			"name": "READ: Is OData endpoint valid (OK)",
+			"url": "https://localhost:5001/odata/",
+			"time": 336,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains base keys": true,
+				"Response contains array": true,
+				"Response collection is of length 13": true,
+				"Response contains all collection keys": true,
+				"Response contains EDM names": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains base keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response collection is of length 13": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all collection keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains EDM names": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				336
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains base keys": true,
+					"Response contains array": true,
+					"Response collection is of length 13": true,
+					"Response contains all collection keys": true,
+					"Response contains EDM names": true
+				}
+			]
+		},
+		{
+			"id": "b00305de-a314-43aa-9246-2f38599ed06d",
+			"name": "READ: Retrieve all patients (OK)",
+			"url": "https://localhost:5001/odata/patients",
+			"time": 298,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an array": true,
+				"Response is of length 8": true,
+				"Response collection contains objects": true,
+				"Response collection entity contains all properties": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is of length 8": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response collection contains objects": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response collection entity contains all properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				298
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an array": true,
+					"Response is of length 8": true,
+					"Response collection contains objects": true,
+					"Response collection entity contains all properties": true
+				}
+			]
+		},
+		{
+			"id": "8dfce7b5-a116-4e6f-942d-d7f89f3633c1",
+			"name": "CREATE: Add a new Activity to a Patient (Created)",
+			"url": "https://localhost:5001/odata/runnings",
+			"time": 403,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is an object": true,
+				"Response collection entity contains all properties": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response collection entity contains all properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				403
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is an object": true,
+					"Response collection entity contains all properties": true
+				}
+			]
+		},
+		{
+			"id": "5ccf6bc3-a589-408f-9ac7-c0245a98f3bd",
+			"name": "CREATE: Add a new Activity (Bad Request)",
+			"url": "https://localhost:5001/odata/runnings/",
+			"time": 27,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "1c194423-bf57-4e76-87d5-7bb5ed1cc8a1",
+			"name": "UPDATE: Assign Patients to an existing Doctor (OK)",
+			"url": "https://localhost:5001/odata/doctors/TestDoctor-1",
+			"time": 77,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				77
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "123c62ba-a368-42fd-abbe-5bb0dcc3b9d0",
+			"name": "UPDATE: Assign Patients to a non-existent Doctor",
+			"url": "https://localhost:5001/odata/doctors/TestDoctor-9",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "9d98ccb0-fc3c-4ad7-bb7a-c0e607e8f0f1",
+			"name": "DELETE: Remove an existing Doctor",
+			"url": "https://localhost:5001/odata/doctors/TestDoctor-2",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "deef2856-9664-4a10-863d-9df86aa75cf4",
+			"name": "DELETE: Remove an already-removed Doctor",
+			"url": "https://localhost:5001/odata/doctors/TestDoctor-2",
+			"time": 26,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"collection": {
+		"requests": [
+			{
+				"id": "6c39c63d-a18a-49cc-bac3-e2613eaf4744",
+				"method": "GET"
+			},
+			{
+				"id": "b00305de-a314-43aa-9246-2f38599ed06d",
+				"method": "GET"
+			},
+			{
+				"id": "8dfce7b5-a116-4e6f-942d-d7f89f3633c1",
+				"method": "POST"
+			},
+			{
+				"id": "5ccf6bc3-a589-408f-9ac7-c0245a98f3bd",
+				"method": "POST"
+			},
+			{
+				"id": "1c194423-bf57-4e76-87d5-7bb5ed1cc8a1",
+				"method": "PUT"
+			},
+			{
+				"id": "123c62ba-a368-42fd-abbe-5bb0dcc3b9d0",
+				"method": "PUT"
+			},
+			{
+				"id": "9d98ccb0-fc3c-4ad7-bb7a-c0e607e8f0f1",
+				"method": "DELETE"
+			},
+			{
+				"id": "deef2856-9664-4a10-863d-9df86aa75cf4",
+				"method": "DELETE"
+			}
+		]
+	}
+}

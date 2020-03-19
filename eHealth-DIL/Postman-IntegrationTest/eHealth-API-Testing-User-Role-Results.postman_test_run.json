@@ -1,0 +1,575 @@
+{
+	"id": "3fe695d7-b490-4f3d-bdda-8fbc5cd5f350",
+	"name": "eHealth API Testing - User Role",
+	"timestamp": "2020-03-18T12:53:08.625Z",
+	"collection_id": "49743e13-8d61-40e0-9619-800267f92665",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 43,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8436f455-5ab4-41aa-b119-82fea39be6b3",
+			"name": "1. Verify the existence of a non-existent username for Doctor",
+			"url": "https://localhost:5001/odata/credentials/validateusername(username='ehs-madeleinegirard')",
+			"time": 5224,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5224
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "f09330a8-bbae-4a21-950e-10156133fcde",
+			"name": "2. Verify the existence of a non-existent username for Patient",
+			"url": "https://localhost:5001/odata/credentials/validateusername(username='thegreataoife13')",
+			"time": 246,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				246
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "bf25c37c-7f5c-45a1-aa51-2327e8243edb",
+			"name": "3. Create Credential instance for Doctor",
+			"url": "https://localhost:5001/odata/credentials/register",
+			"time": 2723,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2723
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "6282cec7-e686-49d6-a770-900fd73b96d3",
+			"name": "4. Create Credential instance for Patient",
+			"url": "https://localhost:5001/odata/credentials/register",
+			"time": 237,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				237
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "6ed1a9b7-c27b-4749-be6b-c3b710467dcd",
+			"name": "5. Verify the existence of an existing username for Doctor Copy",
+			"url": "https://localhost:5001/odata/credentials/validateusername(username='ehs-madeleinegirard')",
+			"time": 701,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				701
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "ee932dc7-6b1c-401b-8be4-135d97808079",
+			"name": "6. Verify the existence of an existing username for Patient Copy",
+			"url": "https://localhost:5001/odata/credentials/validateusername(username='thegreataoife13')",
+			"time": 164,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response is an object": true,
+				"Response contains all properties": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains all properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				164
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response is an object": true,
+					"Response contains all properties": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "bc208f79-f8c9-4da7-b338-7575652a44b3",
+			"name": "7. Login to Doctor Account",
+			"url": "https://localhost:5001/odata/credentials/login",
+			"time": 788,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains user key": true,
+				"User contains patient keys": true,
+				"Doctor is named Madeleine": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains user key": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User contains patient keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Doctor is named Madeleine": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				788
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains user key": true,
+					"User contains patient keys": true,
+					"Doctor is named Madeleine": true
+				}
+			]
+		},
+		{
+			"id": "3ddbc8b1-37f2-4e34-988c-8130be126735",
+			"name": "8. Login to Patient Account",
+			"url": "https://localhost:5001/odata/credentials/login",
+			"time": 408,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an object": true,
+				"Response contains user key": true,
+				"User contains patient keys": true,
+				"Patient is named Aoife": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains user key": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User contains patient keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Patient is named Aoife": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				408
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an object": true,
+					"Response contains user key": true,
+					"User contains patient keys": true,
+					"Patient is named Aoife": true
+				}
+			]
+		},
+		{
+			"id": "71120c0e-5ef3-4f8d-84ae-0a37276293f2",
+			"name": "9. Login to non-existent Account",
+			"url": "https://localhost:5001/odata/credentials/login",
+			"time": 96,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response is an object": true,
+				"Response contains user key": true,
+				"Check response value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains user key": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check response value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Response is an object": true,
+					"Response contains user key": true,
+					"Check response value": true
+				}
+			]
+		},
+		{
+			"id": "8ef9c59b-0958-4e42-9b96-9bee69360d78",
+			"name": "10. Assign Patient to Doctor",
+			"url": "https://localhost:5001/odata/doctors/TestDoctor-1",
+			"time": 194,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				194
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f0aa314a-22d0-4c15-816e-9a3245b32cd4",
+			"name": "11. Assign Doctor to Patient",
+			"url": "https://localhost:5001/odata/patients/TestPatient-3",
+			"time": 183,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				183
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "4898ee07-d656-472e-b60f-e6daa14d5fdd",
+			"name": "12. Add a new Activity to Patient",
+			"url": "https://localhost:5001/odata/runnings/",
+			"time": 640,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is an object": true,
+				"Response collection entity contains all properties": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response collection entity contains all properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				640
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is an object": true,
+					"Response collection entity contains all properties": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"collection": {
+		"requests": [
+			{
+				"id": "8436f455-5ab4-41aa-b119-82fea39be6b3",
+				"method": "POST"
+			},
+			{
+				"id": "f09330a8-bbae-4a21-950e-10156133fcde",
+				"method": "POST"
+			},
+			{
+				"id": "bf25c37c-7f5c-45a1-aa51-2327e8243edb",
+				"method": "POST"
+			},
+			{
+				"id": "6282cec7-e686-49d6-a770-900fd73b96d3",
+				"method": "POST"
+			},
+			{
+				"id": "6ed1a9b7-c27b-4749-be6b-c3b710467dcd",
+				"method": "POST"
+			},
+			{
+				"id": "ee932dc7-6b1c-401b-8be4-135d97808079",
+				"method": "POST"
+			},
+			{
+				"id": "bc208f79-f8c9-4da7-b338-7575652a44b3",
+				"method": "POST"
+			},
+			{
+				"id": "3ddbc8b1-37f2-4e34-988c-8130be126735",
+				"method": "POST"
+			},
+			{
+				"id": "71120c0e-5ef3-4f8d-84ae-0a37276293f2",
+				"method": "POST"
+			},
+			{
+				"id": "8ef9c59b-0958-4e42-9b96-9bee69360d78",
+				"method": "PUT"
+			},
+			{
+				"id": "f0aa314a-22d0-4c15-816e-9a3245b32cd4",
+				"method": "PUT"
+			},
+			{
+				"id": "4898ee07-d656-472e-b60f-e6daa14d5fdd",
+				"method": "POST"
+			}
+		]
+	}
+}

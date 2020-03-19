@@ -1,0 +1,7 @@
+const CONNECTION_STATUS = Object.freeze({
+  DISCONNECTED: "DISCONNECTED",
+  PAIRED: "PAIRED",
+  FAILED: "FAILED"
+});
+
+export default CONNECTION_STATUS;
