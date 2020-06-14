@@ -6251,11 +6251,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthApplication\\eHealth-DIL\\eHealth-DIL-3.1\\eHealth-DIL-3.1.csproj",
+      "projectUniqueName": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthSystem\\eHealth-DIL\\eHealth-DIL-3.1\\eHealth-DIL-3.1.csproj",
       "projectName": "eHealth-DIL-3.1",
-      "projectPath": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthApplication\\eHealth-DIL\\eHealth-DIL-3.1\\eHealth-DIL-3.1.csproj",
+      "projectPath": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthSystem\\eHealth-DIL\\eHealth-DIL-3.1\\eHealth-DIL-3.1.csproj",
       "packagesPath": "C:\\Users\\andyl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthApplication\\eHealth-DIL\\eHealth-DIL-3.1\\obj\\",
+      "outputPath": "C:\\Users\\andyl\\Documents\\GitHub\\eHealthSystem\\eHealth-DIL\\eHealth-DIL-3.1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

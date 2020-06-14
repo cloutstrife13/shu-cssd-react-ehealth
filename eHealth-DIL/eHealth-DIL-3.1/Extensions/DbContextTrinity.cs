@@ -14,17 +14,22 @@ namespace eHealth_DataBus.Extensions
     /// </summary>
     public class DbContextTrinity
     {
+        /// <summary>Attempts a connection to the Virtuoso database.</summary>
+        public IStore Store { get { return StoreFactory.CreateStore(_connectionString); } }
+
         /// <summary>Contains the credentials of connecting to the Virtuoso database.</summary>
-        private string _connectionString = "provider=virtuoso;host=127.0.0.1;port=1111;uid=dba;pw=dba;rule=urn:example/ruleset";
+#if RELEASE
+        private string _connectionString = "provider=virtuoso;host=localhost;port=1111;uid=dba;pw=dba;rule=urn:example/ruleset";
+#else
+        private string _connectionString = "provider=virtuoso;host=localhost;port=1111;uid=dba;pw=dba;rule=urn:example/ruleset";
+#endif
+        /// <summary>Retrieves the Ontology from Virtuoso.</summary>
+        public IModel DefaultModel { get { return Store.GetModel(_defaultModelUri); } }
 
         /// <summary>Contains the URI of an Ontology stored in the Virtuoso database.</summary>
         Uri _defaultModelUri = new Uri("http://www.ehealth.ie/semantics");
 
-        /// <summary>Attempts a connection to the Virtuoso database.</summary>
-        public IStore Store { get { return StoreFactory.CreateStore(_connectionString); } }
-
-        /// <summary>Retrieves the Ontology from Virtuoso.</summary>
-        public IModel DefaultModel { get { return Store.GetModel(_defaultModelUri); } }
+        public DbContextTrinity() {}
 
         /// <summary>Activates the interaction between the Trinity library and an active Virtuoso database.</summary>
         public void Initialise()
