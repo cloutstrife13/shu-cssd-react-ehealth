@@ -1,4 +1,6 @@
 # eHealth Mobile Application
+**Disclaimer: This is a demo application developed for an assessment of the module "Case Studies in Software Design" at Sheffield Hallam University. The following information provided is fictional and do not offer any real-world resemblance.**
+
 The eHealth Mobile Application is a digital healthcare management platform for patients and doctors. It will be commissioned with the intent of accelerating the demand for an openly-accessible healthcare platform in the age of digitalisation.
 
 Healthcare professionals can use it in order to track the health conditions of their patients. Patients can use it like a fitness tracking application where they can record their personal health data via Bluetooth synchronisation or manual user input. Recordable activities include blood pressure reading, weight reading as well as physical exercise that encompass walking, running, and cycling.
