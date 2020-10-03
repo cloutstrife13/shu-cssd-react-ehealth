@@ -1,5 +1,5 @@
 # eHealth Mobile Application
-**Disclaimer: This is a demo application developed for an assessment of the module "Case Studies in Software Design" at Sheffield Hallam University. The following information provided is fictional and do not offer any real-world resemblance.**
+**Disclaimer: This is a demo application developed for an assessment for the module "Case Studies in Software Design" at Sheffield Hallam University. The following information provided is fictional and do not offer any real-world resemblance.**
 
 The eHealth Mobile Application is a digital healthcare management platform for patients and doctors. It will be commissioned with the intent of accelerating the demand for an openly-accessible healthcare platform in the age of digitalisation.
 
